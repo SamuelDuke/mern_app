@@ -1,8 +1,12 @@
 const express = require("express");
 const config = require("./config/main");
 const routers = require("./routers");
+const mongooseDatabaseSetup = require("./config/mongooseDatabaseSetup");
 
 const app = express();
+
+// Setup Database
+mongooseDatabaseSetup();
 
 // Setup Routers
 routers(app);

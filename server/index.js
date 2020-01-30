@@ -1,13 +1,12 @@
 const express = require("express");
+const config = require("./config/main");
 const routers = require("./routers");
-
-const PORT = 8080;
 
 const app = express();
 
 // Setup Routers
 routers(app);
 
-app.listen(PORT, () => {
-  console.log(`The server is listening at port: ${PORT}`);
+app.listen(config.port, () => {
+  console.log(`The server is listening at port: ${config.port}`);
 });

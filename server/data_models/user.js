@@ -23,12 +23,17 @@ const UserSchema = new Schema({
   password: { type: String, required: [true, "You must submit a password."] }
 });
 
+const generateHash = password => {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// static =======================
+UserSchema.statics.generateHash = generateHash;
+
 // methods ======================
 
 // generating a hash
-UserSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+UserSchema.methods.generateHash = generateHash;
 
 // checking if password is valid
 UserSchema.methods.validPassword = function(password) {

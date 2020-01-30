@@ -1,3 +1,6 @@
+# Confidential config files
+config/main.js
+
 # Logs
 logs
 *.log
